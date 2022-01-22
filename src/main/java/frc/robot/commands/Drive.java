@@ -17,9 +17,9 @@ public class Drive implements Command {
     public void execute() {
         double left, right;
         double throttle, turn;
-        final double driveSens = 0.2;
-        final double turnSens = 0.5;
-        final double turnInPlaceSens = 0.3;
+        final double driveSens = 0.05;
+        final double turnSens = 0.02;
+        final double turnInPlaceSens = 0.03;
         throttle = RobotContainer.getThrottle();
         turn = RobotContainer.getTurn();
         if(throttle != 0) {
