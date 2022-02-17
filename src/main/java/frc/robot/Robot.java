@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -26,9 +27,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
+    /*m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
+    SmartDashboard.putData("Auto choices", m_chooser);*/
     robot = RobotContainer.getInstance();
   }
 
@@ -40,7 +41,9 @@ public class Robot extends TimedRobot {
    * SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+    CommandScheduler.getInstance().run();
+  }
 
   /**
    * This autonomous (along with the chooser code above) shows how to select between different
@@ -54,7 +57,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
+    //m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
   }
@@ -62,7 +65,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
+    /*switch (m_autoSelected) {
       case kCustomAuto:
         // Put custom auto code here
         break;
@@ -70,7 +73,7 @@ public class Robot extends TimedRobot {
       default:
         // Put default auto code here
         break;
-    }
+    }*/
   }
 
   /** This function is called once when teleop is enabled. */
